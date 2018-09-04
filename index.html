@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Weather API</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <main class="container">
+    <section id="input" class="hidden">
+      <form id="location-form">
+        <div class="form-group">
+          <input type="text" id="location" placeholder="Enter Your Location Here....." required>
+        </div>
+        <button type="submit">Submit</button>
+      </form>
+    </section>
+    <section id="result" class="hidden">
+      <h1 id="title"><span class="teal">Location: </span></h1>
+      <p>Weather conditions are as follows....</p>
+      <ul>
+        <li><span class="teal">Weather Type</span> </li>
+        <li><span class="teal">Temp</span> </li>
+        <li><span class="teal">Pressure</span> </li>
+        <li><span class="teal">Humidity</span> </li>
+      </ul>
+    </section>
+  </main>
+
+  <script src="js/AJAX.js"></script>
+  <script src="js/main.js"></script>
+</body>
+
+</html>
