@@ -24,32 +24,31 @@ let YOURAPPLICATION = (function(ajax) {
       pressure: data.main.pressure,
       humidity: data.main.humidity
     };
-    console.log(value);
 
     // Target Elements
     document.querySelector("#title").innerHTML += value.name;
     let list = document.querySelectorAll("#result ul li");
-    list[0].innerHTML += value.type;
-    list[1].innerHTML += value.temp;
-    list[2].innerHTML += value.pressure;
-    list[3].innerHTML += value.humidity;
+    list[0].innerHTML += value.temp;
+    list[1].innerHTML += value.pressure;
+    list[2].innerHTML += value.humidity;
+    list[3].innerHTML += value.type;
   }
 
   function success(position) {
-    // console.log(arguments);
     let options = {
       url: getURL(position),
       method: "GET",
       callBack: function() {
         if (this.readyState === XMLHttpRequest.DONE) {
           if (this.status === 200) {
-            console.log(this.responseText);
             document.querySelector("#result").classList.remove("hidden");
             document.querySelector("#input").classList.add("hidden");
             render(JSON.parse(this.responseText));
           } else {
-            console.log("Failed to server");
+            console.log("falied to serve");
           }
+        } else {
+          console.log("fetching");
         }
       }
     };
