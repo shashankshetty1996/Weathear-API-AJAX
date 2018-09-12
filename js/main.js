@@ -34,6 +34,20 @@ let YOURAPPLICATION = (function(ajax) {
     list[3].innerHTML += value.type;
   }
 
+  function alertError(message) {
+    let interval,
+      alert = document.querySelector("#alert");
+
+    alert.innerHTML = "Weather " + message;
+    alert.classList.remove("fade");
+
+    clearTimeout(interval);
+
+    interval = setTimeout(() => {
+      alert.classList.add("fade");
+    }, 3000);
+  }
+
   function success(position) {
     let options = {
       url: getURL(position),
@@ -45,7 +59,8 @@ let YOURAPPLICATION = (function(ajax) {
             document.querySelector("#input").classList.add("hidden");
             render(JSON.parse(this.responseText));
           } else {
-            console.log("falied to serve");
+            console.log("falied to serve", this.statusText);
+            alertError(this.statusText);
           }
         } else {
           console.log("fetching");
